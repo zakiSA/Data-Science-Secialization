@@ -4,4 +4,7 @@ Ask the right questions, manipulate data sets, and create visualizations to comm
 # List of Courses
 ## Course 1: The Data Scientist’s Toolbox
 ## Course 2: R Programming
+## Course 3: Getting and Cleaning Data
+## Course 4: Exploratory Data Analysis
+## Course 5: Reproducible Research
 
