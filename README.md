@@ -7,4 +7,10 @@ Ask the right questions, manipulate data sets, and create visualizations to comm
 ## Course 3: Getting and Cleaning Data
 ## Course 4: Exploratory Data Analysis
 ## Course 5: Reproducible Research
+## Course 6: Statistical Inference
+## Course 7: Regression Models
+## Course 8: Practical Machine Learning
+## Course 9 : Developing Data Products
+## Course 10 : Data Science Capstone
+
 
