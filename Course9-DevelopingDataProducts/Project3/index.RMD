@@ -1,0 +1,89 @@
+---
+title: "BMI and Health Status Predictor"
+author: "S Zaki"
+date: "10/8/2018"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## BMI Predictor
+
+Body Mass Index (BMI) can be used to calcualte tissue mass of an individual which in turn can be used to categorize the individuals health status as Underweight, Normal Weight, Overweight or Obese. 
+
+In general the formula for calcualting BMI is: 
+
+           BMI = Weight/(Height)^2 
+           
+BMI formula when using metric units: Weight in kgs and Height in cms.
+
+           BMI = Weight/(Height)^2 * 1000 expressed in kg/m^2
+
+## Basics of App
+
+This BMI Prediction App uses the dataset https://www.kaggle.com/yersever/500-person-gender-height-weight-bodymassindex. This data is used to Predict the BMI of the user based on the 
+Weight and Gender selected by the user. The BMI value is then used to categorize the individual into one of the four categories namely Underweight, Normal Weight, Overweight or Obese. 
+
+The Dataset
+
+```{r dataset}
+
+suppressMessages(library(dplyr))
+
+bmi_data <- read.csv("./500_Person_Gender_Height_Weight_Index.csv")
+library(dplyr)
+#Convert bmi_data to tibble
+bmi_tbl <- as_tibble(bmi_data)
+my_tbl <- mutate(bmi_tbl,BMI=Weight/Height^2 * 10000)
+head(my_tbl)
+```
+
+```{r grouping}
+#Group by Gender
+fem_group <- group_by(my_tbl,Gender) %>% filter(Gender=="Female")
+m_group <- group_by(my_tbl,Gender) %>% filter(Gender=="Male")
+#Convert Weight into numeric
+my_tbl$Weight <- as.numeric(my_tbl$Weight)
+my_tbl$Height <- as.numeric(my_tbl$Height)
+
+```
+
+***
+## How it Works
+This BMI Predictor App is a Shiny App. The User Interface has a Side Bar and Main Panel
+
+###Side Bar
+  - displays instructions on how to use the App.
+  - displays options to select Gender (Female/Male).
+  - has a slider for selecting Weight.
+  - has a textbox input for Height.
+  
+###Main Panel
+  - displays a plot with the BMI vs weight of a sample of Females and Males (grey         points), the predicted BMI for the user (red point for Female/blue point for          Male) and the fitted regression line.
+  - displays predicted BMI of user and predicts their health status based on the BMI     value (Underweight, Normal Weight,Overweight, Obese), reports Gender, Weight and     Height of the user (red for Female/blue for Male).
+
+
+
+## Plot Predicting BMI based on Weight and Gender
+
+```{r model}
+model1 <- lm(BMI~Weight,data=fem_group)
+model2 <- lm(BMI~Weight,data=m_group)
+
+model1pred <- predict(model1,newdata = data.frame(Weight=64))
+model2pred <- predict(model2,newdata = data.frame(Weight=64))
+par(mfcol=c(1,2))
+plot(my_tbl$Weight,my_tbl$BMI,main="Female",xlab = "Weight in kgs", ylab = "BMI", bty = "n", col="grey",pch = 16, 
+     xlim = c(50,200), ylim = c(0, 80))
+     points(64,model1pred,col="red",pch=16,cex=2,lwd=2)
+     abline(model1,col="red",lwd=3)
+plot(my_tbl$Weight,my_tbl$BMI,main="Male",xlab = "Weight in kgs", ylab = "BMI", bty = "n", col="grey",pch = 16, 
+     xlim = c(50,200), ylim = c(0, 80))
+     points(64,model2pred,col="blue",pch=16,cex=2,lwd=2)
+     abline(model2,col="blue",lwd=3)     
+
+```
+
+
