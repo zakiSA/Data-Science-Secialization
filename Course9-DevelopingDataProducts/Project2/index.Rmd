@@ -1,0 +1,23 @@
+---
+title: "Plotly R Markdown Assignment"
+author: "S Zaki"
+date: "9/30/2018"
+always_allow_html: yes
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Plot of Tree Height vs Volume colored based on Girth
+
+```{r plot,echo=FALSE,message=FALSE,fig.height=4,fig.width=6}
+
+library(plotly)
+library(ggplot2)
+library(datasets)
+data("trees")
+plot_ly(trees,x=~Height,y=~Volume,type = "scatter",mode="markers",color = ~Girth)
+
+```
