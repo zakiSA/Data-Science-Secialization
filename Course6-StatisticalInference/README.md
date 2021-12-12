@@ -38,7 +38,7 @@ Now in the second portion of the project, we're going to analyze the ToothGrowth
 
 ## Assignment Submission Links
 
-[Part 1:](https://s3.amazonaws.com/coursera-uploads/peer-review/3e3aead8f94aac5b7401275d07bbbeac/Stat_Inf_Course_Proj.pdf)
+[Part 1: Simulation Exercise](https://s3.amazonaws.com/coursera-uploads/peer-review/3e3aead8f94aac5b7401275d07bbbeac/Stat_Inf_Course_Proj.pdf)
 
-[Part 2:](https://s3.amazonaws.com/coursera-uploads/peer-review/a1d7aa3c69bfa138c74ed1f7719d1626/Tooth_Growth.pdf)
+[Part 2: Basic Inferential Data Analysis](https://s3.amazonaws.com/coursera-uploads/peer-review/a1d7aa3c69bfa138c74ed1f7719d1626/Tooth_Growth.pdf)
 
