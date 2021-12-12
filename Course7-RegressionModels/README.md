@@ -8,9 +8,7 @@ You work for Motor Trend, a magazine about the automobile industry. Looking at a
 
 "Quantify the MPG difference between automatic and manual transmissions"  
 
-Review criteria
+[Assignment Solution Link: Motor Trend Analysis](https://s3.amazonaws.com/coursera-uploads/peer-review/b44163ad47715266862ab58c1241d0c0/Motor_Trend_Proj.pdf)
 
-
-[Assignment Solution Link:]("https://s3.amazonaws.com/coursera-uploads/peer-review/b44163ad47715266862ab58c1241d0c0/Motor_Trend_Proj.pdf")
 
 
