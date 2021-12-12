@@ -1,0 +1,43 @@
+---
+title: "Tour of London"
+author: "S Zaki"
+date: "9/18/2018"
+output: html_document
+---
+
+## September 18, 2018
+
+```{r icon, echo=FALSE}
+library(leaflet)
+
+### Using leaflet to make interactive tour map of London Landmarks
+
+
+lonIcon <- makeIcon("http://getdrawings.com/cliparts/city-bus-clipart-10.jpg",
+            iconWidth = 31*215/230, iconHeight = 31,
+            iconAnchorX = 31*215/230/2, iconAnchorY = 16
+)
+```
+
+```{r links, echo=FALSE}
+london_landmarks <- c("<a href='https://www.towerbridge.org.uk/' >Tower Bridge London</a>",
+                            "<a href='https://www.hrp.org.uk/tower-of-london/#gs.Kl8=tvA'>Tower of London</a>",
+                            "<a href='https://www.stpauls.co.uk/'>St Pauls Cathedral</a>",
+                            "<a href='https://www.londoneye.com/'>London Eye</a>",
+                            "<a href='https://www.parliament.uk/about/living-heritage/building/palace/'>Palace of Westminster</a>",
+                            "<a href='https://www.royal.uk/buckingham-palace'>Buckingham Palace</a>")
+```
+
+
+
+```{r df, echo=FALSE }
+lon_df <- data.frame(lat=c(51.5055,51.508530,51.513870,51.503399,51.4995,51.501476),
+                     lng=c(-0.0754,-0.076132,-0.098341,-0.119519,-0.1248,-0.140634))
+```
+
+```{r map, echo= FALSE}
+lon_df %>% leaflet() %>% addTiles %>% addMarkers(~lng, ~lat, icon = lonIcon,
+                                                 popup = london_landmarks)
+```
+
+London Bus image from <a href="http://getdrawings.com/city-bus-clipart">City Bus Clipart</a>
