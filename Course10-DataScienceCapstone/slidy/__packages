@@ -1,0 +1,11 @@
+base
+shiny
+dplyr
+tidytext
+tidyr
+NLP
+tm
+ggplot2
+stringr
+hunspell
+bindrcpp
